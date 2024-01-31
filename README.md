@@ -1,6 +1,7 @@
 https://crypto-da023.web.app/
 
 # ProyectoCrypto
+![cap1](https://github.com/adrianalonsoo/ProyectoCypto/assets/79534469/9e43835f-b77e-4afd-83b7-7fa58bd2414f)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
 
