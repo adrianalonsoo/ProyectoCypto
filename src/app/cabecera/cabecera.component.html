@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinGecko</title>
+    <link rel="stylesheet" href="cabecera.component.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CoinGecko</h1>
+            <nav>
+                <a class="button" routerLink="/Cuerpo" routerLinkActive="activeButton">Inicio</a>
+                <a class="button" routerLink="/monedas" routerLinkActive="activeButton">Portfolio</a>
+                <button  (click)="iniciaSesion()">Login Google</button>
+                <button  (click)="github()">Login Github</button>
+            </nav>
+        </div>
+    </header>
+

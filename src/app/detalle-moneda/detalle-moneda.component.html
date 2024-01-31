@@ -1,0 +1,45 @@
+
+<a routerLink="/monedas" routerLinkActive="routerActiveButton">Volver</a>
+
+
+
+<div class="projcard-container">
+    
+
+  <div class="projcard projcard-customcolor" style="--projcard-color: #F5AF41;">
+    <div class="projcard-innerbox">
+      <img class="projcard-img" src="{{moneda.image.large}}"/>
+      <div class="projcard-textbox">
+        <div class="projcard-title">{{moneda.name}}</div>
+        <div class="projcard-subtitle">{{moneda.symbol}}</div>
+        <div class="projcard-bar"></div>
+        <div class="projcard-description"> <ng-container *ngIf="moneda.description.es;else ingles;">
+            <p class="card-text">Descripcion Español:{{moneda.description.es}}</p>
+        </ng-container>
+        <ng-template #ingles>
+            <ng-container *ngIf="moneda.description.en;else noTiene">
+                <p class="card-text">Descripcion Ingles:{{moneda.description.en}}</p></ng-container>
+        </ng-template>
+        <ng-template #noTiene>
+            <p class="card-text">No hay una descripción disponible</p>
+        </ng-template>
+
+        <p *ngIf="moneda.genesis_date">Creado en {{moneda.genesis_date}} </p></div>
+        <div class="projcard-tagbox">
+          <span class="projcard-tag"><div *ngIf="moneda.links.repos_url.github[0]">
+            <a href={{moneda.links.repos_url.github[0]}}>Github </a>
+        </div></span>
+          <span class="projcard-tag"><div  *ngIf="moneda.links.subreddit_url">
+            <a href={{moneda.links.subreddit_url}}>Reddit</a>
+        </div></span>
+          <span class="projcard-tag"> <div *ngIf="moneda.links.blockchain_site[0]">
+            <a href={{moneda.links.blockchain_site[0]}}>Página Web</a>
+        </div></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+  
+ 

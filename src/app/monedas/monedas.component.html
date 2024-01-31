@@ -1,0 +1,103 @@
+
+<ul>
+    <button (click)="obtenDatos()">Trending</button>
+    
+
+    
+
+    <label for="buscarMoneda">Buscar Monedas: </label>
+        <input type="text" id="buscarmoneda" (ngModelChange)="buscarMoneda()" [(ngModel)]="buscarmoneda">
+        <ul>
+            <li *ngFor="let moneda of monedas let i=index">
+                <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nº</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Simbolo</th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                
+                    <th scope="row">{{ i + 1 }}</th>
+                    
+                        <img
+                            src={{moneda.thumb}}
+                            style="width: 50px"
+                        />
+                        
+                    
+                    <td>{{ moneda.name }}</td>
+                    
+                    <td>{{moneda.symbol}}</td>
+                    <td><a routerLink="/detalle/{{moneda.id}}" routerLinkActive="routerActiveButton">Ver Detalles</a></td>
+            </tbody>
+            
+        </table>
+                
+            
+            
+        </ul>
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nº</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Simbolo</th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let moneda of ajax.datosAPI; let i=index" >
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td (click)="monedaClick(moneda)">
+                        <img
+                            src={{moneda.item.small}}
+                            style="width: 50px"
+                        />
+                        
+                    </td>
+                    <td>{{ moneda.item.name }}</td>
+                    
+                    <td>{{moneda.item.symbol}}</td>
+                    <td><button class="btn btn-danger" (click)="borrarMonedaClick(moneda)" >Borrar</button></td>
+                    <td><button class="btn btn-danger" (click)="add(moneda)" >Seguir</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nº</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Simbolo</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let moneda of monedasFollows; index as i" >
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td (click)="monedaClick(moneda)">
+                        <img
+                            src={{moneda.item.small}}
+                            style="width: 50px"
+                        />
+                        
+                    </td>
+                    <td>{{ moneda.item.name }}</td>
+                    
+                    <td>{{moneda.item.symbol}}</td>
+                    <td><button class="btn btn-danger" (click)="borrarMonedaClick(moneda)" >Borrar</button></td>
+                    <td><button class="btn btn-danger" (click)="add(moneda)" >Seguir</button></td>
+                </tr>
+            </tbody>
+        </table>
+</ul>
