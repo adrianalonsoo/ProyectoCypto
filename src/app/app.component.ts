@@ -42,7 +42,7 @@ export class AppComponent {
     }
   }
 
-  deleteCoin(moneda: any) {
+  borrar(moneda: any) {
     let i = this.monedasFollows.findIndex(x => x.id === moneda.id);
     this.monedasFollows.splice(i, 1);
     localStorage.setItem('monedasFollows', JSON.stringify(this.monedasFollows));
