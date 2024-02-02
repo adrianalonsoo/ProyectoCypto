@@ -15,35 +15,37 @@ import { Input } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  //local Storage
   constructor() {
-    if (localStorage.getItem('monedasVigiladas') != null && localStorage.getItem('monedasVigiladas') != undefined) {
-      this.monedasVigiladas = JSON.parse(String(localStorage.getItem('monedasVigiladas')));
-      console.log(this.monedasVigiladas)
+    if (localStorage.getItem('monedasFollows') != null && localStorage.getItem('monedasFollows') != undefined) {
+      this.monedasFollows = JSON.parse(String(localStorage.getItem('monedasFollows')));
+      console.log(this.monedasFollows)
     }
 
   }
   title = 'ProyectoCrypto';
+  //prueba
   trataEventoDeHijo(datoRecibido:string){
     console.log("salta evento= "+datoRecibido);
   }
-  monedasVigiladas = new Array();
+  monedasFollows = new Array();
   moneda!: Object;
   monedas = new Array();
 
 
   
 
-  addToSelected(moneda: any) {
-    if (!this.monedasVigiladas.find(x => x.id === moneda.id)) {
-      this.monedasVigiladas.push(moneda);
-      localStorage.setItem('monedasVigiladas', JSON.stringify(this.monedasVigiladas));
+  add(moneda: any) {
+    if (!this.monedasFollows.find(x => x.id === moneda.id)) {
+      this.monedasFollows.push(moneda);
+      localStorage.setItem('monedasFollows', JSON.stringify(this.monedasFollows));
     }
   }
 
   deleteCoin(moneda: any) {
-    let i = this.monedasVigiladas.findIndex(x => x.id === moneda.id);
-    this.monedasVigiladas.splice(i, 1);
-    localStorage.setItem('monedasVigiladas', JSON.stringify(this.monedasVigiladas));
+    let i = this.monedasFollows.findIndex(x => x.id === moneda.id);
+    this.monedasFollows.splice(i, 1);
+    localStorage.setItem('monedasFollows', JSON.stringify(this.monedasFollows));
   }
 }
 
